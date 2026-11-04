@@ -89,7 +89,7 @@ main{max-width:1800px}
 </style>
 </head><body>
 <div class="filter-system site-filter-bar" id="filterSystem"><div class="site-filter-inner"><a class="filter-brand" href="./" aria-label="头像框素材库首页"><img src="/avatar-frame-gallery/assets/branding/huajiao-logo.png?v=2" alt="花椒直播"></a><nav class="filter-nav" aria-label="素材筛选">
-<button class="filter-trigger" type="button" data-filter-menu="category" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">风格分类</span><span class="filter-current" id="current-category">全部分类与辅助专题</span></button>
+<button class="filter-trigger" type="button" data-filter-menu="category" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">风格分类</span><span class="filter-current" id="current-category">全部分类</span></button>
 <button class="filter-trigger" type="button" data-filter-menu="rendering" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">画法</span><span class="filter-current" id="current-rendering">全部画法</span></button>
 <button class="filter-trigger" type="button" data-filter-menu="material" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">材质</span><span class="filter-current" id="current-material">全部材质</span></button>
 <button class="filter-trigger" type="button" data-filter-menu="usageFilter" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">使用状态</span><span class="filter-current" id="current-usageFilter">全部状态</span></button>
@@ -101,8 +101,8 @@ main{max-width:1800px}
 <script>
 const data=JSON.parse(document.getElementById('catalog-data').textContent),byId=id=>document.getElementById(id),v=data.taxonomy.vocabulary;
 function option(id,value,text){const o=document.createElement('option');o.value=value;o.textContent=text;byId(id).appendChild(o);return o}
-data.categories.forEach(c=>option('category',c.category,c.category+' · 主类 '+c.count+' 张'));
-data.extras.forEach(c=>option('category','extra:'+c.name,'辅助专题 · '+c.name+' · '+c.count+' 张'));
+data.categories.forEach(c=>option('category',c.category,c.name));
+data.extras.forEach(c=>option('category','extra:'+c.name,c.name));
 [['rendering','rendering'],['material','materials']].forEach(([id,key])=>v[key].forEach(t=>option(id,t,t)));
 function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e}
 const filterMenuMeta={category:{label:'风格分类',description:'按主类或辅助专题查看头像框素材。'},rendering:{label:'画法',description:'选择一种呈现方式筛选素材。'},material:{label:'材质',description:'选择材质查看对应素材。'},usageFilter:{label:'使用状态',description:'筛选已使用或未使用的头像框。'}};
