@@ -65,7 +65,23 @@
 .gallery-title{margin:20px 0 24px;color:#1d1d1f;font-size:clamp(36px,3.6vw,57.6px);font-weight:650;letter-spacing:-.035em;line-height:1.12}
 .status{margin-bottom:42px}
 @media(max-width:700px){.gallery-title{font-size:clamp(30.6px,8.1vw,43.2px);margin:20px 0 18px}}
-</style></head><body>
+</style><style>
+/* Gallery cards follow the supplied product-card reference. */
+.card{display:flex;flex-direction:column;border:1px solid #f1f1f1;border-radius:36px;overflow:hidden;background:#fff;box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.picture{display:block;padding:22px 22px 0;aspect-ratio:1;background:#fff}
+.info{display:flex;flex:1;min-height:250px;flex-direction:column;align-items:flex-start;padding:28px 28px 30px;background:#fff}
+.card-category{margin:0 0 6px;color:#c54b00;font-size:15px;font-weight:650;line-height:1.4}
+.info h2{margin:0 0 16px;font-size:24px;line-height:1.3}
+.info .tags{gap:8px;margin:0 0 22px}
+.info .tags span{border-radius:999px;padding:6px 11px;font-size:14px}
+.card-footer{display:flex;width:100%;align-items:center;justify-content:space-between;margin-top:auto}
+.card-footer .usage-tag,.card-footer .usage-tag.used,.card-footer .usage-tag.unused{border:0;border-radius:999px;background:#1d1d1f;color:#fff;padding:7px 15px;font-size:14px;font-weight:500;line-height:1.3;cursor:pointer}
+.download-button{display:grid;width:48px;height:48px;place-items:center;border-radius:50%;background:#f0f3f7;color:#1d1d1f;text-decoration:none;transition:background .18s,transform .18s}
+.download-button:hover{background:#e3e8ef;transform:translateY(-1px)}
+.download-button svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:700px){.card{border-radius:24px}.picture{padding:14px 14px 0}.info{min-height:205px;padding:18px 16px 20px}.card-category{font-size:12px}.info h2{margin-bottom:12px;font-size:17px}.info .tags{gap:5px;margin-bottom:16px}.info .tags span{padding:4px 8px;font-size:11px}.card-footer .usage-tag,.card-footer .usage-tag.used,.card-footer .usage-tag.unused{padding:6px 11px;font-size:12px}.download-button{width:38px;height:38px}.download-button svg{width:20px;height:20px}}
+</style>
+</head><body>
 <div class="filter-system site-filter-bar" id="filterSystem"><div class="site-filter-inner"><div class="filter-brand">头像框素材库</div><nav class="filter-nav" aria-label="素材筛选">
 <button class="filter-trigger" type="button" data-filter-menu="category" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">风格分类</span><span class="filter-current" id="current-category">全部分类与辅助专题</span></button>
 <button class="filter-trigger" type="button" data-filter-menu="rendering" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">画法</span><span class="filter-current" id="current-rendering">全部画法</span></button>
@@ -117,9 +133,10 @@ function render(){const category=byId('category').value,query=byId('q').value.tr
  items.sort((a,b)=>Number(b.user_selected)-Number(a.user_selected)||a.id.localeCompare(b.id));byId('count').textContent='当前 '+items.length+' 张 / 共 '+allItems.length+' 张案例';const grid=byId('grid');grid.replaceChildren();
  if(!items.length){grid.appendChild(node('div','当前筛选条件没有匹配案例，请调整筛选条件。','empty'));return}
  const fragment=document.createDocumentFragment();items.forEach(i=>{const card=node('article',undefined,'card'),a=node('a',undefined,'picture');a.href=i.local_url||'jing-tai-tou-xiang-kuang-zhi-zuo/'+i.path;a.target='_blank';const img=node('img');img.src=i.local_url||'jing-tai-tou-xiang-kuang-zhi-zuo/'+i.path.replace(/^assets\//,'assets/thumbs/');img.alt=i.title;img.loading='lazy';img.decoding='async';a.appendChild(img);card.appendChild(a);
-  const info=node('div',undefined,'info'),cat=node('div',undefined,'category');
-  const status=usageOf(i),statusButton=node('button',status==='used'?'已使用':'未使用','usage-tag '+status);statusButton.type='button';statusButton.setAttribute('aria-label',i.title+'：点击切换使用状态');statusButton.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();usageMap[i.id]=status==='used'?'unused':'used';saveUsage();render()});cat.appendChild(statusButton);info.appendChild(cat);info.appendChild(node('h2',i.title));
-  const tags=node('div',undefined,'tags');[...i.rendering,...i.materials,...i.motifs].forEach(t=>tags.appendChild(node('span',t)));info.appendChild(tags);
+  const info=node('div',undefined,'info'),categoryLabel=(i.primary_category||('辅助专题 / '+(i.collection||'本地上传'))).replace(/^(\d{2})/,'$1 ');info.appendChild(node('div',categoryLabel,'card-category'));info.appendChild(node('h2',i.title));
+  const tags=node('div',undefined,'tags');[...i.rendering,...i.materials,...i.motifs].slice(0,4).forEach(t=>tags.appendChild(node('span',t)));info.appendChild(tags);
+  const footer=node('div',undefined,'card-footer'),status=usageOf(i),statusButton=node('button',status==='used'?'已使用':'未使用','usage-tag '+status);statusButton.type='button';statusButton.setAttribute('aria-label',i.title+'：点击切换使用状态');statusButton.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();usageMap[i.id]=status==='used'?'unused':'used';saveUsage();render()});footer.appendChild(statusButton);
+  const downloadButton=node('a',undefined,'download-button');downloadButton.href=i.local_url||'jing-tai-tou-xiang-kuang-zhi-zuo/'+i.path;downloadButton.setAttribute('download',i.source_filename||(i.path||'').split('/').pop()||i.title+'.png');downloadButton.setAttribute('aria-label',i.title+'：下载原图');downloadButton.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 20h16"/></svg>';footer.appendChild(downloadButton);info.appendChild(footer);
   card.appendChild(info);fragment.appendChild(card)});grid.appendChild(fragment)}
 byId('q').addEventListener('input',render);byId('cross').addEventListener('change',render);
 ['category','rendering','material','usageFilter'].forEach(id=>byId(id).addEventListener('change',()=>{syncFilterLabels();render()}));syncFilterLabels();
