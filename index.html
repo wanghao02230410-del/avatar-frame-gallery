@@ -24,7 +24,7 @@ body.filter-menu-open main{filter:blur(20px);opacity:.42}
 .site-filter-bar .filter-menu-heading{color:#1d1d1f;font-size:24px}
 .site-filter-bar .filter-menu-description{color:#6e6e73}
 .site-filter-bar .mega-options{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
-.site-filter-bar .mega-option{min-height:50px;border:0;border-radius:999px;background:transparent;color:#1d1d1f}
+.site-filter-bar .mega-option{min-height:50px;border:0;border-radius:999px;background:transparent;color:#1d1d1f;transition:background-color .44s cubic-bezier(.2,.65,.3,1)}
 .site-filter-bar .mega-option:hover{background:#f5f5f7}
 .site-filter-bar .mega-option:focus-visible{background:#f5f5f7;outline:2px solid #86868b;outline-offset:2px}
 .site-filter-bar .mega-option[aria-pressed="true"]{background:#e8e8ed}
@@ -108,7 +108,7 @@ main{max-width:1800px}
 .filter-menu:not([hidden]),.search-panel:not([hidden]){animation:appleFadeUp .46s cubic-bezier(.2,.65,.3,1) both}
 .card.reveal-on-scroll{opacity:0;transform:translate3d(0,22px,0);transition:opacity .68s cubic-bezier(.2,.65,.3,1),transform .68s cubic-bezier(.2,.65,.3,1);transition-delay:var(--reveal-delay,0ms)}
 .card.reveal-on-scroll.is-visible{opacity:1;transform:translate3d(0,0,0)}
-@media(prefers-reduced-motion:reduce){.site-filter-inner>.filter-brand,.site-filter-inner>.filter-nav .filter-trigger,.site-filter-inner>.search-toggle,.site-filter-inner>.site-upload-button,.gallery-title,.status,.filter-menu:not([hidden]),.search-panel:not([hidden]),.filter-menu-content{animation:none}.site-filter-bar .filter-nav::before,body main{transition:none}.card.reveal-on-scroll{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){.site-filter-inner>.filter-brand,.site-filter-inner>.filter-nav .filter-trigger,.site-filter-inner>.search-toggle,.site-filter-inner>.site-upload-button,.gallery-title,.status,.filter-menu:not([hidden]),.search-panel:not([hidden]),.filter-menu-content{animation:none}.site-filter-bar .filter-nav::before,.site-filter-bar .mega-option,body main{transition:none}.card.reveal-on-scroll{opacity:1;transform:none;transition:none}}
 </style>
 </head><body>
 <div class="filter-system site-filter-bar" id="filterSystem"><div class="site-filter-inner"><a class="filter-brand" href="./" aria-label="头像框素材库首页"><img src="/avatar-frame-gallery/assets/branding/huajiao-logo.png?v=2" alt="花椒直播"></a><nav class="filter-nav" aria-label="素材筛选">
