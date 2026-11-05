@@ -23,14 +23,14 @@ body.filter-menu-open main{filter:blur(20px);opacity:.42}
 .site-filter-bar .filter-menu{position:absolute;top:100%;left:0;right:0;width:100%;padding:34px max(28px,calc((100vw - 1320px)/2)) 42px;border-radius:0;background:#fff;color:#1d1d1f;box-shadow:none;max-height:min(66vh,620px)}
 .site-filter-bar .filter-menu-heading{color:#1d1d1f;font-size:24px}
 .site-filter-bar .filter-menu-description{color:#6e6e73}
-.site-filter-bar .mega-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.site-filter-bar .mega-options{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .site-filter-bar .mega-option{min-height:50px;border:1px solid #d2d2d7;background:#fff;color:#1d1d1f}
 .site-filter-bar .mega-option:hover,.site-filter-bar .mega-option:focus-visible{border-color:#86868b;background:#f5f5f7}
 .site-filter-bar .mega-option[aria-pressed="true"]{border-color:#86868b;background:#e8e8ed}
 .site-filter-bar .mega-option-check{color:#0071e3}
 .controls{position:relative;z-index:1}
 @media(max-width:1000px){.site-filter-inner{gap:12px}.site-filter-bar .filter-trigger{padding:0 12px}}
-@media(max-width:700px){.site-filter-inner{display:block;padding:0 10px}.filter-brand{display:flex;justify-content:center;padding:8px 0 4px}.filter-brand img{width:75px;max-height:17.5px}.site-filter-bar .filter-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}.site-filter-bar .filter-trigger{height:42px;min-height:42px;padding:5px}.site-filter-bar .filter-menu{padding:22px 16px 30px}.site-filter-bar .mega-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.site-filter-inner{display:block;padding:0 10px}.filter-brand{display:flex;justify-content:center;padding:8px 0 4px}.filter-brand img{width:75px;max-height:17.5px}.site-filter-bar .filter-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}.site-filter-bar .filter-trigger{height:42px;min-height:42px;padding:5px}.site-filter-bar .filter-menu{padding:22px 16px 30px}.site-filter-bar .mega-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:430px){.site-filter-bar .mega-options{grid-template-columns:1fr}}
 </style><style>
 .site-filter-inner{gap:24px}
@@ -49,7 +49,7 @@ body.filter-menu-open main{filter:blur(20px);opacity:.42}
 .quick-search-link{display:flex;align-items:center;gap:14px;width:100%;padding:9px 0;border:0;border-radius:0;background:transparent;color:#333;font-size:16px;text-align:left}
 .quick-search-link span{color:#86868b;font-size:18px}
 .quick-search-link:hover,.quick-search-link:focus-visible{color:#06c;background:transparent;outline:none}
-@media(max-width:700px){.site-filter-inner{display:grid;grid-template-columns:minmax(0,1fr) 44px auto;grid-template-rows:auto auto;align-items:center;padding:0 10px}.filter-brand{display:flex;grid-column:1;grid-row:1;justify-self:start;min-width:0;padding:4px 0}.filter-brand img{width:min(75px,100%);max-width:100%;max-height:17.5px}.site-filter-bar .filter-nav{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}.site-filter-bar .filter-trigger{height:42px;min-height:42px;padding:5px}.search-toggle{grid-column:2;grid-row:1;align-self:center}.search-panel{padding:23px 20px 30px}.search-panel input[type="search"]{height:58px;font-size:21px}.search-panel .search-input-row{gap:12px}}
+@media(max-width:700px){.site-filter-inner{display:grid;grid-template-columns:minmax(0,1fr) 44px auto;grid-template-rows:auto auto;align-items:center;padding:0 10px}.filter-brand{display:flex;grid-column:1;grid-row:1;justify-self:start;min-width:0;padding:4px 0}.filter-brand img{width:min(75px,100%);max-width:100%;max-height:17.5px}.site-filter-bar .filter-nav{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}.site-filter-bar .filter-trigger{height:42px;min-height:42px;padding:5px}.search-toggle{grid-column:2;grid-row:1;align-self:center}.search-panel{padding:23px 20px 30px}.search-panel input[type="search"]{height:58px;font-size:21px}.search-panel .search-input-row{gap:12px}}
 </style><style>
 .site-upload-button{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin-left:0;padding:7px 22px;border:0;border-radius:999px;background:#000;color:#fff;font-size:15px;font-weight:500;white-space:nowrap;transition:background .16s,transform .16s}
 .site-upload-button:hover{background:#222}
@@ -58,15 +58,15 @@ body.filter-menu-open main{filter:blur(20px);opacity:.42}
 .reset-fab{position:fixed;right:calc(22px + env(safe-area-inset-right));bottom:calc(22px + env(safe-area-inset-bottom));z-index:120;display:grid;place-items:center;width:50px;height:50px;padding:0;border:1px solid #d2d2d7;border-radius:50%;background:#fff;color:#1d1d1f;box-shadow:0 4px 16px #0002}
 .reset-fab:hover,.reset-fab:focus-visible{background:#f5f5f7;box-shadow:0 6px 20px #0003;outline:2px solid #0071e3;outline-offset:2px}
 .reset-fab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:700px){.site-filter-inner{display:grid;grid-template-columns:minmax(0,1fr) 44px auto;grid-template-rows:auto auto;align-items:center;padding:0 10px}.site-filter-bar .filter-nav{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}.search-toggle{grid-column:2;grid-row:1;margin-left:0}.site-upload-button{grid-column:3;grid-row:1;justify-self:end;min-height:38px;padding:6px 16px;font-size:14px}.reset-fab{right:calc(15px + env(safe-area-inset-right));bottom:calc(15px + env(safe-area-inset-bottom));width:46px;height:46px}}
+@media(max-width:700px){.site-filter-inner{display:grid;grid-template-columns:minmax(0,1fr) 44px auto;grid-template-rows:auto auto;align-items:center;padding:0 10px}.site-filter-bar .filter-nav{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}.search-toggle{grid-column:2;grid-row:1;margin-left:0}.site-upload-button{grid-column:3;grid-row:1;justify-self:end;min-height:38px;padding:6px 16px;font-size:14px}.reset-fab{right:calc(15px + env(safe-area-inset-right));bottom:calc(15px + env(safe-area-inset-bottom));width:46px;height:46px}}
 </style>
 <style>
 /* Keep the four top filter tabs the same size as the current “使用状态” tab. */
 .site-filter-inner{position:relative}
-.site-filter-bar .filter-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));flex:0 1 520px;width:min(520px,100%);max-width:520px;margin:0 auto;gap:4px}
+.site-filter-bar .filter-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:0 1 390px;width:min(390px,100%);max-width:390px;margin:0 auto;gap:4px}
 .site-filter-bar .filter-trigger{width:100%;min-width:0}
 @media(min-width:1001px){.site-filter-bar .filter-nav{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);flex:none;margin:0}}
-@media(max-width:700px){.site-filter-bar .filter-nav{width:100%;max-width:none;flex:none;margin:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}}
+@media(max-width:700px){.site-filter-bar .filter-nav{width:100%;max-width:none;flex:none;margin:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}}
 .gallery-title{margin:20px 0 24px;color:#1d1d1f;font-size:clamp(36px,3.6vw,57.6px);font-weight:650;letter-spacing:-.035em;line-height:1.12}
 .status{margin-bottom:42px}
 @media(max-width:700px){.gallery-title{font-size:clamp(30.6px,8.1vw,43.2px);margin:20px 0 18px}}
@@ -114,7 +114,6 @@ main{max-width:1800px}
 <div class="filter-system site-filter-bar" id="filterSystem"><div class="site-filter-inner"><a class="filter-brand" href="./" aria-label="头像框素材库首页"><img src="/avatar-frame-gallery/assets/branding/huajiao-logo.png?v=2" alt="花椒直播"></a><nav class="filter-nav" aria-label="素材筛选">
 <button class="filter-trigger" type="button" data-filter-menu="category" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">风格分类</span><span class="filter-current" id="current-category">全部分类</span></button>
 <button class="filter-trigger" type="button" data-filter-menu="rendering" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">画法</span><span class="filter-current" id="current-rendering">全部画法</span></button>
-<button class="filter-trigger" type="button" data-filter-menu="material" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">材质</span><span class="filter-current" id="current-material">全部材质</span></button>
 <button class="filter-trigger" type="button" data-filter-menu="usageFilter" aria-controls="filterMenu" aria-expanded="false"><span class="filter-trigger-label">使用状态</span><span class="filter-current" id="current-usageFilter">全部状态</span></button>
 </nav><button class="search-toggle" id="searchToggle" type="button" aria-label="打开搜索" aria-controls="searchPanel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m15.5 15.5 5 5"></path></svg></button><button class="site-upload-button" id="uploadButton" type="button" aria-label="上传头像框">上传头像框</button></div><div class="search-panel" id="searchPanel" role="region" aria-label="搜索素材" hidden><div class="search-panel-inner"><label class="search-input-row"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m15.5 15.5 5 5"></path></svg><input id="q" type="search" placeholder="搜索头像框素材…" autocomplete="off"></label><div class="quick-searches"><p class="quick-search-title">快速搜索</p><button class="quick-search-link" type="button" data-search-query="王冠"><span aria-hidden="true">→</span>王冠</button><button class="quick-search-link" type="button" data-search-query="玫瑰"><span aria-hidden="true">→</span>玫瑰</button><button class="quick-search-link" type="button" data-search-query="孙悟空"><span aria-hidden="true">→</span>孙悟空</button><button class="quick-search-link" type="button" data-search-query="萌宠"><span aria-hidden="true">→</span>萌宠</button><button class="quick-search-link" type="button" data-search-query="机械环"><span aria-hidden="true">→</span>机械环</button></div></div></div><div class="filter-menu" id="filterMenu" role="region" aria-live="polite" hidden></div><div class="filter-store" hidden><select id="category"><option value="">全部分类与辅助专题</option></select><select id="rendering"><option value="">全部画法</option></select><select id="material"><option value="">全部材质</option></select><select id="usageFilter"><option value="">全部状态</option><option value="unused">未使用</option><option value="used">已使用</option></select></div></div>
 <main><input id="cross" type="checkbox" checked hidden><input id="uploadInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
@@ -128,7 +127,7 @@ data.categories.forEach(c=>option('category',c.category,c.name));
 data.extras.forEach(c=>option('category','extra:'+c.name,c.name));
 [['rendering','rendering'],['material','materials']].forEach(([id,key])=>v[key].forEach(t=>option(id,t,t)));
 function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e}
-const filterMenuMeta={category:{label:'风格分类',description:'按主类或辅助专题查看头像框素材。'},rendering:{label:'画法',description:'选择一种呈现方式筛选素材。'},material:{label:'材质',description:'选择材质查看对应素材。'},usageFilter:{label:'使用状态',description:'筛选已使用或未使用的头像框。'}};
+const filterMenuMeta={category:{label:'风格分类',description:'按主类或辅助专题查看头像框素材。'},rendering:{label:'画法',description:'选择一种呈现方式筛选素材。'},usageFilter:{label:'使用状态',description:'筛选已使用或未使用的头像框。'}};
 let activeFilterMenu=null,filterMenuPinned=false;
 const filterNav=document.querySelector('.filter-nav');
 function moveFilterPill(kind){const trigger=filterNav.querySelector('[data-filter-menu="'+kind+'"]');if(!trigger)return;filterNav.style.setProperty('--filter-pill-x',trigger.offsetLeft+'px');filterNav.style.setProperty('--filter-pill-y',trigger.offsetTop+'px');filterNav.style.setProperty('--filter-pill-width',trigger.offsetWidth+'px');filterNav.dataset.pillActive='true'}
